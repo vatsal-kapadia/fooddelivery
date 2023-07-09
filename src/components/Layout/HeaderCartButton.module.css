@@ -1,0 +1,72 @@
+.button {
+    cursor: pointer;
+    font: inherit;
+    border:solid 1px;
+    background-color: #ffc529;
+    color: white;
+    padding: 0.75rem 0.75rem;
+    display:flex;
+    justify-content:flex-end;
+    align-items: center;
+    box-align: left;
+    border-radius: 25px;
+    font-weight: bold;
+    border-color: black;
+    /* margin-left: 500px; */
+   
+           
+  }
+  
+  .button:hover,
+  .button:active {
+    background-color: #95741a;
+  }
+  
+  .icon {
+    width: 45%;
+    height: 45%;
+    margin-right: 0.5rem;
+    justify-content:rigth;
+  }
+  
+  .badge {
+    background-color: #ffc529;
+    padding: 0.25rem 1rem;
+    border-radius: 25px;
+    margin-left: 1rem;
+    font-weight: bold;
+  }
+  
+  .button:hover .badge,
+  .button:active .badge {
+    background-color: #95741a;
+  }
+  
+  .bump {
+    animation: bump 300ms ease-out;
+  }
+  
+  @keyframes bump {
+    0% {
+      transform: scale(1);
+    }
+    10% {
+      transform: scale(0.9);
+    }
+    30% {
+      transform: scale(1.1);
+    }
+    50% {
+      transform: scale(1.15);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .button {
+      margin-right: 45px;
+      max-width: 250px;
+    }
+  }
