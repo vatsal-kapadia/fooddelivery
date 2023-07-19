@@ -1,7 +1,7 @@
 import { Button } from "@material-ui/core";
 import { useRef, useState } from "react";
 import Input from "../../UI/Input";
-import classes from "/Users/vatsalkapadia/Downloads/React Food Delivery app/fooddelivery/src/components/Meals/MealItem/MealForm.module.css"
+import classes from "/Users/vatsalkapadia/Downloads/React Food Delivery app/fooddelivery/src/components/Meals/MealItem/MealForm.module.css";
 const MealItemForm = (props) => {
 
     const [amountIsValid, setAmountIsValid] = useState(true);
