@@ -3,16 +3,17 @@ import './App.css';
 import Header from './components/Layout/Header';
 import Meals from './components/Meals/Meals';
 import { Fragment } from 'react';
+import cartProvider from './store/cartProvider';
 
 function App() {
   return (
-  <Fragment>
+  <cartProvider>
     <Header />
 
     <main>
       <Meals />
     </main>
-    </Fragment>);
+    </cartProvider>);
 }
 
 export default App;
