@@ -1,4 +1,4 @@
-import cartContext from "./cartContext";
+import CartContext from "./cartContext";
 import { useReducer } from "react";
 
 const defaultCartState = {
@@ -11,7 +11,7 @@ const cartReducer = (state, action) => {
 
     if(action.type === "ADD"){
 
-        const updateTotalAmount = state.totalAmount += action.item.price * action.item.amount;
+        const updateTotalAmount = state.totalAmount + action.item.price * action.item.amount;
 
         const existingCartItemIndex= state.items.findIndex(
             (item) => item.id === action.item.id);
@@ -22,15 +22,20 @@ const cartReducer = (state, action) => {
 
     if(existingCartItem){
         const updatedItem = { 
-            existingCartItem, 
+            ...existingCartItem, 
             amount: existingCartItem.amount + action.item.amount
 
         };
-        updatedItems = [state.items];
+        updatedItems = [...state.items];
         updatedItems[existingCartItemIndex]= updatedItem;
     } else {
         updatedItems= state.items.concat(action.item);
     }
+
+    return {
+        items: updatedItems,
+        totalAmount: updateTotalAmount,
+      };
 }
 
 
@@ -56,7 +61,7 @@ const cartReducer = (state, action) => {
             totalAmount: updatedTotalAmount,
           };
         
-    };
+    }
 
     if(action.type === "CLEARALL"){
 
@@ -99,10 +104,10 @@ const CartProvider = (props) => {
     };
 
     return (
-        <cartContext.Provider value={cartContext}>
+        <CartContext.Provider value={cartContext}>
             {props.children}
-        </cartContext.Provider>
+        </CartContext.Provider>
     );
-}
+};
 
 export default CartProvider;

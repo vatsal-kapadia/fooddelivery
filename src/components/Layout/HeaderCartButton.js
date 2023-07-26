@@ -1,17 +1,45 @@
-import Classes from "/Users/vatsalkapadia/Downloads/React Food Delivery app/fooddelivery/src/components/Layout/HeaderCartButton.module.css"
+import classes from "/Users/vatsalkapadia/Downloads/React Food Delivery app/fooddelivery/src/components/Layout/HeaderCartButton.module.css"
 import CartIcon from "../Cart/CartIcon";
-const HeaderCartButton = () =>{
+import { useEffect, useContext, useState } from "react";
+import CartContext from "../../store/cartContext";
+
+const HeaderCartButton = (props) =>{
+    const [btnIsHighlighted, setBtnIsHighlighted] = useState(false);
+    const cartCtx = useContext(CartContext);
+
+    const { items } = cartCtx;
+
+    const numberOfCartItems = items.reduce((curNumber, item) => {
+        return curNumber + item.amount;
+    }, 0);
+
+    const btnClasses = `${classes.button} ${btnIsHighlighted ? classes.bump : ""}`;
+
+    useEffect(() => {
+        if (items.length === 0) {
+        return;
+        }
+        setBtnIsHighlighted(true);
+
+        const timer = setTimeout(() => {
+            setBtnIsHighlighted(false);
+        }, 300);
+
+        return () => {
+            clearTimeout(timer);
+        };
+    }, [items]);
 
     return(
         
-        <button className={Classes.button}>
-            <span className={Classes.icon}>
+        <button className={btnClasses} onClick={props.onClick}>
+            <span className={classes.icon}>
                 <CartIcon />
             </span>
             <span>Your Cart</span>
-            <span className={Classes.badge}>4</span>
+            <span className={classes.badge}>{numberOfCartItems}</span>
         </button>
-    )
-}
+    );
+};
 
 export default HeaderCartButton;

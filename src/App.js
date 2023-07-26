@@ -1,19 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
 import Header from './components/Layout/Header';
 import Meals from './components/Meals/Meals';
-import { Fragment } from 'react';
-import cartProvider from './store/cartProvider';
+import CartProvider from './store/cartProvider';
+import { useState } from 'react';
+import Cart from './components/Cart/Cart';
 
 function App() {
+  const [cartIsShown, setCartIsShown] = useState(false);
+
+  const showCartHandler = () => {
+    setCartIsShown(true);
+  };
+
+  const hideCartHandler = () => {
+    setCartIsShown(false);
+  };
+
   return (
-  <cartProvider>
-    <Header />
+  <CartProvider>
+    {cartIsShown && <Cart onClose={hideCartHandler} />}
+    <Header onShowCart={showCartHandler} onClose={hideCartHandler} />
 
     <main>
       <Meals />
     </main>
-    </cartProvider>);
+    </CartProvider>);
 }
 
 export default App;
