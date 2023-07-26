@@ -1,9 +1,11 @@
 import { Fragment } from "react";
-import { ReactDOM } from "react";
+import  ReactDOM from "react";
 import classes from "/Users/vatsalkapadia/Downloads/React Food Delivery app/fooddelivery/src/components/UI/Modal.module.css";
 
+
+
 const portalElement= document.getElementById("overlays");
-const modalOverlay = (props) => {
+const ModalOverlay = (props) => {
 
     return (
         <div className={classes.modal}>
@@ -12,11 +14,11 @@ const modalOverlay = (props) => {
     )
 }
 
-const Modal =() => {
+const Modal =(props) => {
 
     return (
         <Fragment>
-            {ReactDOM.createPortal(<modalOverlay> {props.children} </modalOverlay> , portalElement)}
+            {ReactDOM.createPortal(<ModalOverlay> {props} </ModalOverlay> , portalElement)}
         </Fragment>
     );
 

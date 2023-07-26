@@ -1,4 +1,4 @@
-import { Button } from "@material-ui/core";
+//import { Button } from "@material-ui/core";
 import { useRef, useState } from "react";
 import Input from "../../UI/Input";
 import classes from "/Users/vatsalkapadia/Downloads/React Food Delivery app/fooddelivery/src/components/Meals/MealItem/MealForm.module.css";
@@ -41,7 +41,7 @@ const MealItemForm = (props) => {
                 }
                 }/>
         
-            <Button>+Add</Button>
+            <button>+Add</button>
             {!amountIsValid && <p>Please enter a valid amount (1-10)</p>}
         </form>
 
