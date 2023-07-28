@@ -1,7 +1,7 @@
 import classes from '/Users/vatsalkapadia/Downloads/React Food Delivery app/fooddelivery/src/components/Meals/MealItem/MealItem.module.css'
 import MealItemForm from './MealItemForm';
 import CartContext from '../../../store/cartContext';
-import {useContext, useState } from 'react';
+import {useContext} from 'react';
 
 const MealItem =(props)=>{
 

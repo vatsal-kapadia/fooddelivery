@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import  ReactDOM from "react";
+import  ReactDOM from "react-dom";
 import classes from "/Users/vatsalkapadia/Downloads/React Food Delivery app/fooddelivery/src/components/UI/Modal.module.css";
 
 
@@ -18,7 +18,7 @@ const Modal =(props) => {
 
     return (
         <Fragment>
-            {ReactDOM.createPortal(<ModalOverlay> {props} </ModalOverlay> , portalElement)}
+            {ReactDOM.createPortal(<ModalOverlay> {props.children} </ModalOverlay> , portalElement)}
         </Fragment>
     );
 

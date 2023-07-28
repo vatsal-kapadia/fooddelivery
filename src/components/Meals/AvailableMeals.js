@@ -26,6 +26,12 @@ const DUMMY_MEALS = [
       description: "Healthy...and green...",
       price: 18.99,
     },
+    {
+      id: "m5",
+      name: "French Fries",
+      description: "Crispy and perfectly salted",
+      price: 10.99,
+    },
   ]; 
  
  

@@ -22,7 +22,7 @@
   .header h2{
     font-size: 25px;
     color: black;
-    padding-right: 55%;
+    padding-right: 60%;
     /* justify-content:space-between; */
   }
 
@@ -56,6 +56,12 @@
 
     .header h2 {
         font-size: 13px;
+        padding-right: 40%;
       }
+
+    .header HeaderCartButton{
+      padding-right: 200px;
+
+    }
   }
 
